@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #parent{
+            width: 100%;
+            height: 500px;
+            border: 1px solid;
+            margin: auto;
+        }
+        .box{
+            width: 100%;
+            height: 500px;
+            border: 1px solid;
+           
+        }
+    </style>
+</head>
+<body>
+    <div id="parent"></div>
+</body>
+</html>
+
+<script>
+
+    let start=0;
+    let data=[
+        "https://occ-0-2686-3647.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABSz3AT71P574jeA2d9diBEzjZkHRi9dxhK_BUjycnoOmgAiKy6Qa3K8eNSKhKfd5A8elbpzfu1JgAFjbOaUZXiuAT9GKd-dAisM.jpg?r=b8a",
+        "https://occ-0-2686-3647.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABRF1ijm7P2-WW_EdZ31bZThluo2w0IVG5FihPETdPR2KV0u0N-dAUjvY3Dtxxe5474k0pqRqTc9_KPMqKsq0u9gfAJCMC-02ReQ.jpg?r=0ed",
+        "https://occ-0-2686-3647.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABZlAbvuRWAnrE77cVUXmh-md-11z_FthmOLneZdfpIuOmARYuioIv-CDPC74LLBGDmAQGm5b0SXb1Ns0TpNpSrPLc3b6S1x2460.jpg?r=393",
+        "https://occ-0-2686-3647.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABZfwZdJ7qV7pNQlayOi3Lwn3CDrVD-WhjI4DM4DxcgzKwNzCzJ83VKoYwe-lbNJQkwhipP56xhYVmJnlOBuuCRGJzf40z2H4WGg.jpg?r=7de",
+        "https://occ-0-2686-3647.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABa7afOATWMKsMzzDLKkFXoynGPB-yc83rrbnx-XIfJuz1xBV6Xx-t4QGHg4yHoi_qwoLto475F4NzFLxx-IUhur2xbmn-gXDH7s.jpg?r=dbf"
+    ];
+
+    let parent =document.getElementById("parent")
+
+
+
+   let access= setInterval(function(){
+
+    if(start===data.length){
+        start=0;
+    }
+        
+         parent.innerHTML=null;
+        let img =data [start]
+ 
+         let box =document.createElement("img")
+         box.src = img
+         box.setAttribute("class","box")
+ 
+         parent.append(box)
+ 
+         start++;
+     },2000)
+ 
+
+   
+
+</script>
+

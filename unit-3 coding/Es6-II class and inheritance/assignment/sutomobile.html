@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+
+    //Automobile inheritance by constructor and super
+
+    class Automobile{
+        constructor(b,seller,eng,d){
+            this.brand=b;
+            this.seller=seller;
+            this.engine=eng;
+            this.door=d;
+        }
+    }
+
+    let a1= new Automobile("TATA","TATA AUTO. LTD.","Diesel","Four")
+    console.log('a1:', a1)
+
+
+    class Vehicle extends Automobile{
+
+        constructor(b,seller,eng,d,type,color){
+            super(b,seller,eng,d)
+            this.type=type;
+            this.color=color;
+
+
+        }
+    }
+
+    let a2 =new Vehicle("TATA","TATA AUTO. LTD.","Diesel","Four","SUV","Black")
+    console.log('a2:', a2)
+
+</script>

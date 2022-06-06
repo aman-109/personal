@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #heading{
+            font-size: 30px;
+        }
+
+        #container{
+            margin-top: 40px;
+            display: grid;
+            gap:20px;
+            grid-template-columns:repeat(3,1fr);
+        }
+       
+        .flexbox{
+            display: flex;
+            width: 30%;
+            justify-content: space-between;
+        }
+       
+
+    </style>
+</head>
+<body>
+    <div id="heading">No. of items lised <span id="counter"></span> </div>
+    <div id="container"></div>
+</body>
+</html>
+<script>
+  
+   
+   var womensData=JSON.parse(localStorage.getItem("Products")) ||[];
+  var count=JSON.parse(localStorage.getItem("count"))||0
+
+  document.querySelector("#counter").innerText=count
+  
+
+   display(womensData);
+ 
+   function display(data){
+    data.forEach(function(ele,index){
+        
+  
+         var box=document.createElement("div");
+        box.setAttribute("class","shadowing")
+
+         var image=document.createElement("img");
+         image.src=ele.ImageUrl
+
+         var Category=document.createElement("p");
+         Category.innerText=ele.ProductCategory;
+
+         var Name=document.createElement("h3");
+         Name.innerText=ele.ProductName;
+
+         var Price=document.createElement("p");
+         Price.innerText=ele.Price;
+
+         var Gender=document.createElement("p");
+         Gender.innerText=ele.Gender
+
+         var flex=document.createElement("div")
+         flex.setAttribute("class","flexbox")
+
+        var button=document.createElement("button")
+        button.innerText="Remove"
+        button.setAttribute("id","Remove")
+        button.addEventListener("click",function(){
+            dltFunc(ele,index);
+        })
+
+        var sold=document.createElement("button")
+        sold.innerText=ele.Sold
+        
+        
+        sold.addEventListener("click",function(){
+           
+        if(sold.innerText === "false"){
+            sold.style.backgroundColor="green"
+                sold.innerText= "true"
+                
+
+            }
+            else{
+                sold.style.backgroundColor="red"
+                sold.innerText="false"
+              
+            }
+        })
+
+        flex.append(button,sold)
+
+        box.append(image,Name,Category,Price,Gender,flex)
+
+        document.querySelector("#container").append(box)
+
+    })
+
+   function dltFunc(ele,index){
+    // console.log("hi")
+    womensData.splice(index,1)
+    count--;
+    localStorage.setItem("Products",JSON.stringify(womensData))
+    localStorage.setItem("count",JSON.stringify(count))
+    window.location.reload();
+   }
+     
+    
+  
+
+      
+   }
+      
+ 
+ </script>

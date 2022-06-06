@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="loading" src="https://media3.giphy.com/media/l3nWhI38IWDofyDrW/200w.webp?cid=ecf05e47etysuk5nww12m2yoq9xvfa8e5qcaqkfjjqnyuh7p&rid=200w.webp&ct=g" alt="">
+</body>
+</html>
+
+<script>
+
+    let image =document.getElementById("loading")
+    // when content load after some time we remove the gif file 
+    //and show the real content
+    function checkContent(){
+
+        return false;
+    }
+
+    let contentShow = new Promise(function(resolve, reject){
+
+        //now after this if content loaded directly then promise resolved
+        //if not loaded then rejected
+
+
+        let content =checkContent()
+        setTimeout(function(){
+            //loaded the contnent after 3 sec
+            if(content){
+            //resolved
+
+            resolve("content loaded successfully")
+        }
+        else{
+            //rejected
+            reject("content failed to load")
+        }
+        },3000)
+       
+
+    })
+
+    // we need to call the resolve and reject consoles
+    //.then and .catch will be use
+
+
+    //.then relate with resolved
+    contentShow.then(function(cont){
+        // console.log(cont)
+
+        //chamging resolved image with content image
+        image.src="https://media0.giphy.com/media/Q81NcsY6YxK7jxnr4v/200w.webp?cid=ecf05e47du9rfrb5n1wqylpwka83yq4zksqob66dao6h9zsx&rid=200w.webp&ct=g"
+
+
+    })
+
+    //.catch relates with reject
+    contentShow.catch(function(error){
+        // console.log(error)
+        image.src="https://media0.giphy.com/media/kEtm4mSTbxvH7j3uCu/200w.webp?cid=ecf05e47zh8k86efe9ahg0hxr3vzcy7e29olzq7bo955n71m&rid=200w.webp&ct=g"
+    })
+
+
+
+</script>

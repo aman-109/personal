@@ -1,0 +1,20 @@
+.divbox{
+    width: 70%;
+    text-align: center;
+    /* border: 1px solid; */
+    margin-left: 50px;
+}
+
+.imgdiv{
+    width: 90%;
+    /* border: 1px solid; */
+}
+
+.coffeeImg{
+    width: 100%;
+}
+
+#confirm_checkout{
+    margin-top: 30px;
+    margin-left: 200px;
+}

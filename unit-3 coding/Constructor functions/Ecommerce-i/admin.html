@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        #form{
+            width: 80%;
+            margin: auto;
+            margin-top: 30px;
+            line-height: 30px;
+        }
+        #parent{
+            width: 40%;
+            margin: auto;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+<div id="parent">
+    <h1>Admin Panel</h1>
+    <form id="form" onsubmit="takeInputs()">
+        <input type="text" id="name" placeholder="Name">
+        <input type="text" id="category" placeholder="Category">
+        <input type="text" id="image" placeholder="Image URL">
+        <input type="text" id="price" placeholder="Price">
+        <select id="gender">
+            <option value="">--Select--</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <select  id="sold" value="false">
+            <option value="false">False</option>
+            <option value="true">True</option>
+        </select>
+        <input type="submit" id="add">
+    </form>
+</div>
+  
+    
+</body>
+</html>
+
+
+<script>
+    let data=JSON.parse(localStorage.getItem("Products")) ||[];
+    let count=JSON.parse(localStorage.getItem("count"))||0;
+
+    function ProductShow(name,category,image,price,gender,sold){
+        this.ProductName=name;
+        this.ProductCategory=category;
+        this.ImageUrl=image;
+        this.Price=price;
+        this.Gender=gender;
+        this.Sold=sold;
+    }
+
+    let arr=[]
+    
+    function takeInputs()
+    {
+        event.preventDefault();
+
+        let form=document.querySelector("#form");
+
+        let name=form.name.value;
+        let category=form.category.value;
+        let image=form.image.value;
+        let price =form.price.value;
+        let gender=form.gender.value;
+        let sold=form.sold.value;
+
+       let obj = new ProductShow(name,category,image,price,gender,sold);
+
+       arr.push(obj)
+       count++;
+
+       localStorage.setItem("Products",JSON.stringify(arr))
+      
+       localStorage.setItem("count",JSON.stringify(count))
+    //    window.location.reload()
+
+    }
+</script>

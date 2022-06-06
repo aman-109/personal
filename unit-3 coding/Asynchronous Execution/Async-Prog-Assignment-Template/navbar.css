@@ -1,0 +1,26 @@
+
+
+ *{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+#navbar{
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+    height: 70px;
+    background-color: aquamarine;
+    /* border: 1px solid; */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+#box{
+    width: 20%;
+    float: right;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}

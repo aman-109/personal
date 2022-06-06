@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="./hotstar.css">
+   <style>
+    input {
+      width: 200px;
+    }
+
+    #movies {
+      height: 200px;
+      width: 300px;
+      border: solid 1px;
+      border-top: none;
+      scroll-behavior: smooth;
+      /* overflow-y: hidden ; */
+      opacity: 0;
+      overflow: auto;
+      background-color: rgb(92, 103, 122);
+      color: white;
+
+    }
+  </style>
+    
+</head>
+<body>
+    
+<!-- navbar -->
+<div id="navbar">
+    <div id="box1">
+        <input id="title" type="text" oninput="debounceFunct(main,500)" placeholder="Search for Movie">
+        <button id="search" onclick="clickSearch()">search
+            <!-- <i class="search-icon"></i> -->
+        </button>
+        <div id="movies"></div>
+    </div>
+    <div id="box2">
+        <div>Home</div>
+        <div>Login</div>
+        <div>Singup</div>
+    </div>
+</div>
+
+<div id="container">
+    Movie
+    <img src="" id="errorimg">
+</div>
+
+ 
+    
+</body>
+</html>
+<script src="./hotstar.js"></script>
+<script>
+    
+
+    //search box click and open 
+    
+    let searchInput =document.getElementById("title")
+let movies_box =document.getElementById("movies")
+
+searchInput.addEventListener("focus",function(){
+  movies_box.style.opacity="1";
+})
+searchInput.addEventListener("blur",function(){
+  movies_box.style.opacity="0";
+})
+
+
+
+
+async function searchMovies(name){
+
+  let url = `http://www.omdbapi.com/?apikey=2c6bffa9&s=${name}`;
+
+
+    try{
+
+          let res = await fetch(url)
+
+          let data =await res.json()
+
+          return data.Search  
+    }catch(error){
+        console.log(error)
+    }
+
+}
+
+
+function appendMovies(movies){
+
+  movies_box.innerHTML=null;
+
+  //return false for the request that doesn't have search word
+  if(movies===undefined)
+  {
+      return false
+  }
+
+
+  movies.forEach(function(ele){
+
+      let div =document.createElement("div")
+      
+
+      let p =document.createElement("p")
+
+      p.innerText=ele.Title
+      p.style.cursor="pointer"
+
+      div.append(p)
+
+      div.onclick=()=>{
+
+        clickedMovies(ele)
+      }
+      movies_box.append(div)
+
+  })
+  // console.log(movies)
+  
+
+}
+
+async function main(){
+
+    let title= document.getElementById("title").value;
+
+    let response=searchMovies(title) 
+
+      let moviedata = await response 
+
+      appendMovies(moviedata)
+      // console.log(data)
+}
+
+let id;
+
+
+function debounceFunct(func,delay)
+{
+  document.getElementById("movies").innerHTML=null
+
+  if(id){
+      clearTimeout(id)
+  }
+       id =setTimeout(function(){
+          func();
+
+      },delay)
+
+
+}
+
+
+function clickedMovies(data){
+    
+  // console.log(data.Title)
+
+  document.getElementById("title").value = data.Title
+ 
+
+}
+
+
+</script>

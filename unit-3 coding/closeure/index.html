@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input {
+        width: 200px;
+      }
+
+      #movies {
+        height: 200px;
+        width: 206px;
+        border: solid 1px;
+        border-top: none;
+        overflow: scroll;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <input oninput="main()" type="text" id="query" /> -->
+    <input oninput="debounceFunct(main,1000)" type="text" id="query" />
+
+    <div id="movies"></div>
+  </body>
+</html>
+
+<script>
+
+let movies_box =document.getElementById("movies")
+
+  async function searchMovies(name){
+
+    let url = `http://www.omdbapi.com/?apikey=2c6bffa9&s=${name}`;
+
+
+      try{
+
+            let res = await fetch(url)
+
+            let data =await res.json()
+
+            return data.Search  //because search has array of object but still it will show error 
+            //to that letters that does not have key called Search so for that look line no.59
+      }catch(error){
+          console.log(error)
+      }
+
+  }
+
+
+  function appendMovies(movies){
+
+    movies_box.innerHTML=null;
+
+    //return false for the request that doesn't have search word
+    if(movies===undefined)
+    {
+        return false
+    }
+
+
+    movies.forEach(function(ele){
+
+        let p =document.createElement("p")
+
+        p.innerText=ele.Title
+
+        movies_box.append(p)
+
+    })
+  }
+
+  async function main(){
+
+      let query= document.getElementById("query").value;
+
+      let response=searchMovies(query) //return the async function value that is always Promise
+        // console.log('x:', x)
+
+        let data = await response //there is no need to response.json()
+        //as we already collect it only need to show that's why await
+
+        appendMovies(data)
+        // console.log(data)
+  }
+
+  let id;
+
+
+  function debounceFunct(func,delay)
+  {
+
+    if(id){
+        clearTimeout(id)
+    }
+         id =setTimeout(function(){
+            func();
+
+        },delay)
+  }
+
+</script>

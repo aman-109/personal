@@ -1,0 +1,43 @@
+
+
+#slideshow{
+   margin-top: 80px;
+   margin-bottom: 20px;
+   
+}
+
+#movies{
+    width: 90%;
+    /* height: 800px; */
+    margin: auto;
+    /* border: 1px solid; */
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 20px;
+    
+}
+
+.child{
+    width: 90%;
+    margin: auto;
+    /* border: 1px solid red; */
+    text-align: center;
+    line-height: 35px;
+
+}
+
+.imgdiv{
+    width: 90%;
+    height: 500px;
+    
+    margin: auto;
+    /* border: 1px solid; */
+
+}
+
+.poster{
+    width: 100%;
+   height: 500px;
+}
+

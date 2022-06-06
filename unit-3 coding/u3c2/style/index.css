@@ -1,0 +1,36 @@
+
+
+#menu{
+    width:100%;
+    /* border: 1px solid; */
+    display: grid ;
+    margin: auto;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: auto;
+   row-gap: 20px;
+   column-gap: 20px;
+  text-align: center;
+    margin-top: 100px;
+
+}
+
+.divbox{
+    width: 70%;
+    text-align: center;
+    /* border: 1px solid; */
+    margin-left: 50px;
+}
+
+.imgdiv{
+    width: 90%;
+    /* border: 1px solid; */
+}
+
+.coffeeImg{
+    width: 100%;
+}
+
+#coffee_count{
+    padding-top: 22px;
+    font-size: 20px;
+}

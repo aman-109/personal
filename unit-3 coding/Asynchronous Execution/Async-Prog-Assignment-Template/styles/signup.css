@@ -1,0 +1,30 @@
+
+
+#signup-form-div{
+    width: 25%;
+    height: auto;
+    margin: auto;
+    margin-top: 150px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;    /* border: 1px solid red; */
+    text-align: center;
+}
+
+#form{
+    width: 60%;
+    padding: 30px 30px;
+    margin: auto;
+    line-height: 50px;
+    /* text-align: center; */
+}
+
+input{
+    height: 30px;
+}
+
+#submit{
+   width: 70px;
+   border-radius: 5px;
+   border: 0;
+   background-color: aquamarine;
+    
+}
