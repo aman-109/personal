@@ -1,0 +1,42 @@
+1. npm init -y
+2. npm i --save-dev jest
+3. npm install --save-dev babel-jest @babel/core @babel/preset-env
+
+
+start with
+1) npm init -y
+2) npm install jest
+2) add functionality file with name"file.js"and export 
+call the export here "function multi (a,b){
+return a*b
+}
+export default multi;"
+
+3) [file.test.js] => create file with (file name)test.js.
+and create the test function and pass the functionality and
+ do expect and .toBe=>{
+import multi from "../testing/multi"
+
+
+multi.test.js=>    test ("testing multiplication",()=>{
+  expect(multi(3,5)).toBe(15)
+});
+}
+
+4)change the script with jest in =>package.json file=>
+"scripts": {
+    "test": "jest"
+  },
+5)npm test 
+*(make sure "../testing/file" without .js) 
+6)if syntex error came like  => SyntaxError: Cannot use import
+ statement outside a module
+7)then we have to install the babel=>
+npm install --save-dev babel-jest @babel/core @babel/preset-env
+
+8)create file with name => babel.config.js => and 
+paste this code inside of this file =>
+module.exports = {
+    presets: [['@babel/preset-env', {targets: {node: 'current'}}]],
+  };
+9)npm test
