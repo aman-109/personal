@@ -1,0 +1,47 @@
+#heading{
+    margin-top: 80px;
+    text-align: center;
+}
+
+#selectFood{
+    width: 200px;
+    height: 40px;
+   display: block;
+   margin: auto;
+    margin-top: 40px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 18px;
+    color: rgb(7, 7, 7);
+    background-color: rgb(0, 255, 255);
+}
+
+#container{
+    width: 95%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(auto,200px);
+    /* text-align: center; */
+    gap: 25px;
+    margin-top: 50px;
+    /* border: 1px solid; */
+}
+
+.child{
+    width: 90%;
+    /* margin: auto;  it makes the odd-even height */
+    text-align: center;
+    /* border: 1px solid; */
+    box-shadow: rgba(205, 226, 39, 0.874) 0px 3px 8px;
+    border-radius: 20px;
+}
+.child:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.imgpoter{
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}

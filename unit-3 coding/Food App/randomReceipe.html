@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Style/navbar.css">
+    <link rel="stylesheet" href="./Style/randomReceipe.css">
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <h2 id="heading">Random Receipes Via Area</h2>
+
+    <select id="selectFood">
+        <option value="">--Select--</option>
+        <option value="Indian">Indian</option>
+        <option value="Italian">Italian</option>
+        <option value="Canadian">Canadian</option>
+        <option value="Chinese">Chinese</option>
+        <option value="Japanese">Japanese</option>
+        <option value="French">French</option>
+        <option value="Thai">Thai</option>
+        <option value="Mexican">Mexican</option>
+    </select>
+
+    <div id="container"></div>
+</body>
+</html>
+<script type="module">
+
+    import nav from "./Components/navbar.js"
+    document.getElementById("navbar").innerHTML=nav()
+
+
+    import {displayData,append} from "./Components/randomReceipe.js"
+
+
+
+    document.getElementById("selectFood").addEventListener("click",main)
+
+    async function main(){
+        let x =document.getElementById("selectFood").value
+        
+        let cont = document.getElementById("container")
+        
+            let res =  displayData(x)
+   
+            let data = await res
+            // console.log('data:', data)
+            append(data,cont)
+        
+       
+    }
+
+</script>

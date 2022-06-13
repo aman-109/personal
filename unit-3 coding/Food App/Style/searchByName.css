@@ -1,0 +1,47 @@
+#searchDiv{
+    width: 40%;
+    height:60px ;
+    margin: auto;
+    text-align: center;
+    margin-top: 100px;
+    background-color: aquamarine;
+    padding-top: 20px;
+    border-radius: 15px;
+}
+#foodSearch{
+    width: 350px;
+    height: 40px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+#container{
+    width: 95%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(auto,200px);
+    /* text-align: center; */
+    gap: 25px;
+    margin-top: 30px;
+    /* border: 1px solid; */
+}
+
+.child{
+    width: 100%;
+    /* margin: auto;  it makes the odd-even height */
+    text-align: center;
+    /* border: 1px solid; */
+    box-shadow: rgba(205, 226, 39, 0.874) 0px 3px 8px;
+
+}
+.child:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.imgpoter{
+    width: 100%;
+}

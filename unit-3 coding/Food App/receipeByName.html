@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Style/navbar.css">
+    <link rel="stylesheet" href="./Style/searchByName.css">
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <div id="searchDiv">
+        <input type="text" id="foodSearch" placeholder="Search The Receipe" >
+    </div>
+    
+    <div id="container"></div>
+</body>
+</html>
+
+<script type="module">
+
+    let me
+    import nav from "./Components/navbar.js"
+    document.getElementById("navbar").innerHTML=nav()
+
+    import {display,append} from "./Components/searchByName.js"
+
+    document.getElementById("foodSearch").addEventListener("input",main)
+    // debouncing(main,1000)
+    let container =document.getElementById("container")
+
+    async function main(){
+        let x =document.getElementById("foodSearch").value
+        
+        
+            let res =  display(x)
+   
+            let detail = await res
+            // console.log('data:', data)
+            append(detail,container)
+        
+       
+    }
+    
+
+    // function debouncing(fun, delayTime)
+    // {
+    //     if(me){
+    //         clearTimeout()
+    //     }
+
+    //     me =setTimeout(function(){
+    //         fun()
+    //     },delayTime)
+    // }
+    
+    
+   
+
+</script>

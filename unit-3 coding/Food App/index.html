@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Style/navbar.css">
+
+    <style>
+        #userDetails{
+            width: 23%;
+            height: auto;
+            margin: auto;
+            margin-top: 150px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;    /* border: 1px solid red; */
+            /* text-align: center; */
+            padding: 20px;
+            font-size: 18px;
+            border-radius: 20px;
+            background-color: rgb(215, 250, 236);
+            
+        }
+        .tag{
+            width: 100%;
+            /* border: 1px solid; */
+            float: right;
+            text-align: center;
+            margin-bottom: 20px;
+            color: red;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="navbar">
+       
+       
+    </div>
+
+
+    <div id="userDetails"><span class="tag">User Details</span></div>
+</body>
+</html>
+
+<script type="module">
+        import nav from"./Components/navbar.js"
+         document.getElementById("navbar").innerHTML= nav()
+
+
+    let signupData=JSON.parse(localStorage.getItem("signupData"))
+    // console.log(signupData)
+
+    displayData(signupData)
+
+    function displayData(data)
+    {
+        // console.log('data:', data)
+
+        data.forEach(ele=>{
+            let div=document.createElement("div")
+
+            let name =document.createElement("p")
+            name.innerText=`Name:- ${ele.name}`
+
+            let email=document.createElement("p")
+            email.innerText=`Email:- ${ele.email}`
+
+            let contact=document.createElement("p")
+            contact.innerText=`Contact:- ${ele.contact}`
+
+
+            div.append(name,email,contact)
+
+            document.getElementById("userDetails").append(div)
+        })
+    }
+</script>
