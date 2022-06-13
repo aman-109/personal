@@ -1,0 +1,21 @@
+
+
+
+
+
+#voucher_list{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(auto,200px);
+    gap: 25px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.voucher{
+    border: 1px solid red;
+    line-height: 20px;
+    padding-bottom: 10px;
+}

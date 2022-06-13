@@ -1,0 +1,13 @@
+
+#navbar{
+    width: 100%;
+    height: 40px;
+    background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+}
+
+#formdiv{
+    width: 60%;
+    margin: auto;
+}

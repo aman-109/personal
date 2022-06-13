@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>
+
+        <h1>Add Products</h1>
+
+        <input type="text" id="id">
+
+        <input type="text" id="name">
+
+        <input type="text" id="price">
+
+        <button onclick="add_product()">Add Product</button>
+    </div>
+
+    <div>
+        <input type="text" id="delete_id">
+
+        <button onclick="updatePro()">Delete</button>
+    </div>
+
+</body>
+</html>
+
+<script>
+
+  async function add_product(){
+
+        const data ={
+            id:document.getElementById("id").value,
+            name:document.getElementById("name").value,
+            price:document.getElementById("price").value,
+        }
+
+
+        let response = await fetch("http://localhost:5000/api/products",{
+            method:"PUT",
+
+            body: JSON.stringify(data),
+
+            headers:{'Content-Type':'application/json'},
+
+        })
+
+        let x = await response.json();
+    }
+
+
+
+    // async function deletePro(){
+
+
+    //     let id =document.getElementById("delete_id").value
+
+
+    //     let res= await fetch(`http://localhost:3001/api/products/${id}`,{
+    //         method:'DELETE',
+
+    //         headers:{'Content-Type':'application/json'},
+    //     })
+
+    //     let y =await res.json()
+
+    //     console.log('y:', y)
+    // }
+
+
+
+
+      async function updatePro(){
+
+
+        // let id =document.getElementById("delete_id").value
+
+
+        let res= await fetch(`http://localhost:3001/api/products/5`,{
+            method:'PUT',
+
+            body: JSON.stringify({
+               
+                name: "ronaldo",
+            }),
+
+            headers:{'Content-Type':'application/json'},
+        })
+
+        let y =await res.json()
+
+        console.log('y:', y)
+    }
+
+</script>

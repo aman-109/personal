@@ -95,7 +95,7 @@ class ParkingFloor{
             {
                 this._parkingSpots.push(new Slot("car",i))
             }
-            else if(i===0)
+            else if(i===1)
             {
                 this._parkingSpots.push(new Slot("bike",i))
             }

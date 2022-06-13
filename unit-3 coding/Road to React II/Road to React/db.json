@@ -1,0 +1,17 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Aman"
+    },
+    {
+      "name": "Fan",
+      "id": "5"
+    },
+    {
+      "id": "4",
+      "name": "TV",
+      "price": "20000"
+    }
+  ]
+}
